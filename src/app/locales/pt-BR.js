@@ -20,3 +20,4 @@ export const textPredictionCRE = 'Predição CRE:';
 export const textPredictionESBL = 'Predição ESBL:';
 export const textButtonReturnForm = 'Nova Predição';
 export const titlePrediction = 'Resultados:'
+export const textPreviousUseMedication = 'Uso prévio de Medicamento:'

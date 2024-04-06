@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -19,7 +19,7 @@ const SelectWithPlaceholder = ({
   const maxHeight = options.length > 5 ? "400px" : "unset";
 
   return (
-    <Box sx={{ maxWidth: 170, marginTop: '5px'  }}>
+    <Box sx={{ maxWidth: 170, marginTop: "5px" }}>
       <FormControl fullWidth className={`form-control${error ? " error" : ""}`}>
         <InputLabel
           id={`select-placeholder-label-${questionNumber}`}

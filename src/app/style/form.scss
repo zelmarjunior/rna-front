@@ -5,7 +5,6 @@ body {
 }
 
 .form-container {
-  color: #000;
   .container-header {
     width: 70%;
     margin: 50px auto;
@@ -125,6 +124,18 @@ body {
         flex-wrap: nowrap;
         justify-content: center;
 
+        @media (max-width: 764px) {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          display: grid;
+
+          .container-select {
+            width: 100% !important;
+            margin-left: 0;
+          }
+        }
+
         .container-select {
           width: calc(23.33% - 10px);
           margin-bottom: 20px;
@@ -132,9 +143,6 @@ body {
 
           .title {
             font-size: 11px;
-            @media (max-width: 764px) {
-              font-size: 14px;
-            }
           }
 
           p {
@@ -155,9 +163,6 @@ body {
 
           .title {
             font-size: 11px;
-            @media (max-width: 764px) {
-              font-size: 14px;
-            }
           }
 
           p {
@@ -169,10 +174,13 @@ body {
       @media (max-width: 764px) {
         flex-direction: column;
         align-items: center;
+        display: grid;
 
         .container-select {
-          width: 100%;
+          width: 100% !important;
           margin-left: 0;
+          display: grid;
+          justify-content: center;
         }
       }
     }
@@ -182,16 +190,18 @@ body {
     .questions-table-two {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       .container-select {
-        width: calc(23.33% - 10px);
+        width: calc(23.33% - 5px);
         margin-bottom: 20px;
-        margin-left: 15px;
+        margin-left: 13px;
+
+        @media (max-width: 1400px) {
+          width: calc(22.33% + 17px);
+          margin-left: 2px;
+        }
         .title {
           font-size: 11px;
-          @media (max-width: 764px) {
-            font-size: 14px;
-          }
         }
         p {
           display: none;
@@ -201,14 +211,20 @@ body {
 
     @media (max-width: 764px) {
       .questions-table-two {
-        flex-direction: column;
         align-items: center;
+        display: grid;
+        justify-content: center;
         .container-select {
           width: 100%;
           margin-left: 0;
+          display: grid;
         }
       }
     }
+  }
+
+  .error-message {
+    color: red;
   }
 
   .container-buttons {

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useCallback, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,7 +9,7 @@ import Loader from "../widget-loader/loader";
 import "../../style/form.scss";
 import SelectWithPlaceholder from "../widget-select";
 
-export default function MyForm() {  
+export default function MyForm() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [age, setAge] = useState("");
@@ -47,7 +47,14 @@ export default function MyForm() {
   };
 
   const handleMedicationUseChange = (event) => {
-    setPreviousMedicationUse(event.target.value);
+    const value = parseInt(event.target.value); // Converte o valor para número inteiro
+    setPreviousMedicationUse(value);
+
+    if (value === 2) {
+      setSelectedMedication(0);
+    } else {
+      setSelectedMedication(null);
+    }
   };
 
   const handleAgeChange = (event) => {
@@ -71,22 +78,22 @@ export default function MyForm() {
         ITU_repeticao: questions.question2?.value,
         Hospitalizacao_previa: questions.question3?.value,
         Permanencia_UTI: questions.question4?.value,
-        Uso_previo_antibiotico: questions.question5?.value,
+        Uso_previo_antibiotico: previousMedicationUse,
         Qual_antibiotico: selectedMedication,
-        Procedimento_trato_genital: questions.question6?.value,
-        Cateter_vesical: questions.question7?.value,
-        Doenca_Renal_Vesical_estrutural: questions.question8?.value,
-        Casa_repouso: questions.question9?.value,
-        IRC: questions.question10?.value,
-        Cardiopatia: questions.question11?.value,
-        Hepatopatia: questions.question12?.value,
-        Diabetes: questions.question13?.value,
-        Ostomias: questions.question14?.value,
-        Demencia: questions.question15?.value,
-        DST: questions.question16?.value,
-        Doenca_pulmonar_cronica: questions.question17?.value,
-        Gestante: questions.question18?.value,
-        Neoplasias: questions.question19?.value,
+        Procedimento_trato_genital: questions.question2?.value,
+        Cateter_vesical: questions.question6?.value,
+        Doenca_Renal_Vesical_estrutural: questions.question7?.value,
+        Casa_repouso: questions.question8?.value,
+        IRC: questions.question9?.value,
+        Cardiopatia: questions.question10?.value,
+        Hepatopatia: questions.question11?.value,
+        Diabetes: questions.question12?.value,
+        Ostomias: questions.question13?.value,
+        Demencia: questions.question14?.value,
+        DST: questions.question15?.value,
+        Doenca_pulmonar_cronica: questions.question16?.value,
+        Gestante: questions.question17?.value,
+        Neoplasias: questions.question18?.value,
       };
 
       for (const key in itemsToSend) {
@@ -98,13 +105,16 @@ export default function MyForm() {
       try {
         setIsLoading(true);
 
-        const response = await fetch("https://rna-4845.onrender.com/prediction", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(itemsToSend),
-        });
+        const response = await fetch(
+          "https://rna-4845.onrender.com/prediction",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(itemsToSend),
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Erro ao enviar os dados para a API");
@@ -158,6 +168,7 @@ export default function MyForm() {
     setSelectedMedication("");
     setGender("");
     setErrorMessage("");
+    setPreviousMedicationUse("");
     setQuestionErrors({});
     setMedicationUseError(false);
     setGenderError(false);
@@ -318,7 +329,7 @@ export default function MyForm() {
                 </Box>
 
                 <Box className="container-select">
-                  <span className="title">Uso prévio de Medicamento:</span>
+                  <span className="title">{pt_BR.textPreviousUseMedication}</span>
                   <SelectWithPlaceholder
                     id="medicationUse"
                     value={previousMedicationUse}
@@ -341,14 +352,19 @@ export default function MyForm() {
                   <SelectWithPlaceholder
                     id="selectedMedication"
                     value={selectedMedication}
-                    onChange={handleMedicationChange}
+                    questionTitle="selectedMedication"
+                    onChange={(event) =>
+                      setSelectedMedication(parseInt(event.target.value, 10))
+                    }
                     placeholder={pt_BR.textSelectMedicationOption}
                     options={[
+                      { value: 0, label: "Não se aplica", disabled: true },
                       ...medications.map((medication, index) => ({
-                        value: index,
+                        value: index + 1,
                         label: medication,
                       })),
                     ]}
+                    disabled={selectedMedication}
                     error={
                       medicationError ||
                       selectedMedication === null ||
