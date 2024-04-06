@@ -1,0 +1,256 @@
+@import url("./fonts.css");
+body {
+  background-image: url(./image/imageBodypng.png);
+  font-family: var(--font-primary);
+}
+
+.form-container {
+  .container-header {
+    width: 70%;
+    margin: 50px auto;
+    background-color: azure;
+    border-radius: 15px;
+
+    @media (max-width: 764px) {
+      width: 95%;
+      margin: 50px auto;
+      background-color: azure;
+      border-radius: 15px;
+    }
+  }
+
+  .header-rna {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+
+  .container {
+    width: 70%;
+    margin: 50px auto;
+    background-color: azure;
+    border-radius: 15px;
+
+    @media (max-width: 764px) {
+      width: 95%;
+      margin: 50px auto;
+      background-color: azure;
+      border-radius: 15px;
+    }
+
+    .questions-container {
+      padding: 30px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+
+      .box-title-questions {
+        width: 100%;
+        margin-bottom: 30px;
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .title-prediction {
+      display: flex;
+      justify-content: center;
+
+      h1 {
+        font-size: 25px;
+      }
+    }
+    .container-info {
+      padding: 0px 30px 30px 30px;
+      display: flex;
+      flex-direction: column;
+
+      .box-info-rna {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        h2 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .btn-container-restart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 30px 0;
+
+      .btn-restart {
+        background-color: #00a67e;
+        border: 1px solid #00a67e;
+        &:hover {
+          background-color: white;
+          span {
+            color: #00a67e;
+          }
+        }
+        @media (max-width: 764px) {
+          border-radius: 50px;
+          height: 45px;
+        }
+        span {
+          color: white;
+          @media (max-width: 764px) {
+            font-size: 12px;
+            padding: 8px;
+          }
+        }
+      }
+    }
+
+    .container-box-one {
+      .select-age_gender_medications {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+
+        .container-select {
+          width: calc(23.33% - 10px);
+          margin-bottom: 20px;
+          //margin-left: 15px;
+
+          .title {
+            font-size: 11px;
+            @media (max-width: 764px) {
+              font-size: 14px;
+            }
+          }
+
+          p {
+            display: none;
+          }
+        }
+      }
+
+      .questions-table-one {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .container-select {
+          width: calc(23.33% - 10px);
+          margin-bottom: 20px;
+          //margin-left: 15px;
+
+          .title {
+            font-size: 11px;
+            @media (max-width: 764px) {
+              font-size: 14px;
+            }
+          }
+
+          p {
+            display: none;
+          }
+        }
+      }
+
+      @media (max-width: 764px) {
+        flex-direction: column;
+        align-items: center;
+
+        .container-select {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .container-box-two {
+    .questions-table-two {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .container-select {
+        width: calc(23.33% - 10px);
+        margin-bottom: 20px;
+        margin-left: 15px;
+        .title {
+          font-size: 11px;
+          @media (max-width: 764px) {
+            font-size: 14px;
+          }
+        }
+        p {
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: 764px) {
+      .questions-table-two {
+        flex-direction: column;
+        align-items: center;
+        .container-select {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .container-buttons {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    justify-content: center;
+
+    span {
+      color: white;
+      @media (max-width: 764px) {
+        font-size: 12px;
+      }
+    }
+    .btn-container {
+      min-width: 64px;
+      padding: 6px 16px;
+      border-radius: 4px;
+
+      @media (max-width: 764px) {
+        border-radius: 50px;
+        height: 45px;
+      }
+    }
+    .clean {
+      background-color: #990f4b;
+      border: 1px solid #990f4b;
+      &:hover {
+        background-color: white;
+        span {
+          color: #990f4b;
+        }
+      }
+    }
+    .send {
+      background-color: #00a67e;
+      border: 1px solid #00a67e;
+      &:hover {
+        background-color: white;
+        span {
+          color: #00a67e;
+        }
+      }
+    }
+  }
+}
