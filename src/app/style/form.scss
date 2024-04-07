@@ -25,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: var(--font-primary);
 
     h1 {
       font-size: 18px;
@@ -53,6 +54,7 @@ body {
       align-items: center;
       display: flex;
       flex-direction: column;
+      font-family: var(--font-primary);
 
       .box-title-questions {
         width: 100%;
@@ -64,17 +66,21 @@ body {
     }
 
     .title-prediction {
+      font-family: var(--font-primary);
       display: flex;
       justify-content: center;
+      padding: 30px;
 
       h1 {
-        font-size: 25px;
+        font-size: 18px;
       }
     }
     .container-info {
+      font-family: var(--font-primary);
       padding: 0px 30px 30px 30px;
       display: flex;
       flex-direction: column;
+      gap: 20px;
 
       .box-info-rna {
         display: flex;
@@ -160,7 +166,6 @@ body {
         .container-select {
           width: calc(23.33% - 10px);
           margin-bottom: 20px;
-          //margin-left: 15px;
 
           .title {
             font-size: 11px;
@@ -182,43 +187,6 @@ body {
           margin-left: 0;
           display: grid;
           justify-content: center;
-        }
-      }
-    }
-  }
-
-  .container-box-two {
-    .questions-table-two {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      .container-select {
-        width: calc(23.33% - 5px);
-        margin-bottom: 20px;
-        margin-left: 13px;
-
-        @media (max-width: 1400px) {
-          width: calc(22.33% + 17px);
-          margin-left: 2px;
-        }
-        .title {
-          font-size: 11px;
-        }
-        p {
-          display: none;
-        }
-      }
-    }
-
-    @media (max-width: 764px) {
-      .questions-table-two {
-        align-items: center;
-        display: grid;
-        justify-content: center;
-        .container-select {
-          width: 100%;
-          margin-left: 0;
-          display: grid;
         }
       }
     }

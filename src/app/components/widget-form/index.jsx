@@ -271,7 +271,7 @@ export default function MyForm() {
           </div>
           <div className="container-info">
             <div className="box-info-rna">
-              <h2>{pt_BR.textPredictionCRE}</h2>
+              <h2>{pt_BR.textPredictionCRE}</h2><p>test</p>
               <p>{(predictions.prediction_cre * 100).toFixed(2)}%</p>
             </div>
             <div className="box-info-rna">
@@ -329,7 +329,9 @@ export default function MyForm() {
                 </Box>
 
                 <Box className="container-select">
-                  <span className="title">{pt_BR.textPreviousUseMedication}</span>
+                  <span className="title">
+                    {pt_BR.textPreviousUseMedication}
+                  </span>
                   <SelectWithPlaceholder
                     id="medicationUse"
                     value={previousMedicationUse}
@@ -390,10 +392,17 @@ export default function MyForm() {
                         )
                       }
                       placeholder={pt_BR.textReponseSelect}
-                      options={[
-                        { value: 1, label: pt_BR.textYes },
-                        { value: 2, label: pt_BR.textNo },
-                      ]}
+                      options={
+                        question.title === "Classificação da ITU:"
+                          ? [
+                              { value: 1, label: pt_BR.ITUComplicated },
+                              { value: 2, label: pt_BR.ITUNoComplicated },
+                            ]
+                          : [
+                              { value: 1, label: pt_BR.textYes },
+                              { value: 2, label: pt_BR.textNo },
+                            ]
+                      }
                       error={questionErrors[`question${question.number}`]}
                       questionNumber={question.number}
                       questionTitle={question.title}
@@ -403,35 +412,6 @@ export default function MyForm() {
               </div>
             </div>
 
-            <div className="container-box-two">
-              <div className="questions-table-two">
-                {questionsPart2.map((question) => (
-                  <Box key={question.number} className="container-select">
-                    <span className="title">{question.title}</span>
-                    <SelectWithPlaceholder
-                      value={
-                        questions[`question${question.number}`]?.value || ""
-                      }
-                      onChange={(event) =>
-                        handleQuestionChange(
-                          event,
-                          question.number,
-                          question.title
-                        )
-                      }
-                      placeholder={pt_BR.textReponseSelect}
-                      options={[
-                        { value: 1, label: pt_BR.textYes },
-                        { value: 2, label: pt_BR.textNo },
-                      ]}
-                      error={questionErrors[`question${question.number}`]}
-                      questionNumber={question.number}
-                      questionTitle={question.title}
-                    />
-                  </Box>
-                ))}
-              </div>
-            </div>
             <div className="error-message">
               {errorMessage && <p>Responda todos os campos para continuar!</p>}
             </div>

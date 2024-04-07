@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -24,7 +24,7 @@ const SelectWithPlaceholder = ({
         <InputLabel
           id={`select-placeholder-label-${questionNumber}`}
           sx={{
-            fontSize: "12px",
+            fontSize: "10px",
             "@media (max-width: 764px)": {
               fontSize: "13px",
             },
@@ -53,18 +53,23 @@ const SelectWithPlaceholder = ({
             PaperProps: {
               sx: {
                 maxHeight: maxHeight,
-                width: "200px",
+                width: "auto",
+                minWidth: "150px",
+                maxWidth: "170px",
                 overflowY: "auto",
               },
             },
           }}
           sx={{
-            "@media (max-width: 764px)": {
-              width: "200px",
+            width: "100%",
+            "& .MuiSelect-select": {
+              height: "40px",
+              lineHeight: "40px",
+              padding: "0 30px 0 12px",
+              boxSizing: "content-box",
+              minWidth: "150px",
+              maxWidth: "170px",
             },
-            "&.MuiInputBase-root": {
-              height:"40px"
-            }
           }}
         >
           <MenuItem disabled value="">

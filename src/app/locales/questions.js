@@ -7,10 +7,6 @@ const questionsPart1 = [
   { number: 6, title: "Cateter vesical:" },
   { number: 7, title: "Doença Renal/Vesicalestrutural:" },
   { number: 8, title: "Casa de repouso:" },
-];
-
-const questionsPart2 = [
-
   { number: 9, title: "Insuficiência Renal (Cr>3):" },
   { number: 10, title: "Cardiopatia:" },
   { number: 11, title: "Hepatopatia:" },
@@ -23,4 +19,4 @@ const questionsPart2 = [
   { number: 18, title: "Neoplasia:" },
 ];
 
-export { questionsPart1, questionsPart2 };
+export { questionsPart1 };
