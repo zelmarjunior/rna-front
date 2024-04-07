@@ -62,6 +62,9 @@ const SelectWithPlaceholder = ({
             "@media (max-width: 764px)": {
               width: "200px",
             },
+            "&.MuiInputBase-root": {
+              height:"40px"
+            }
           }}
         >
           <MenuItem disabled value="">
