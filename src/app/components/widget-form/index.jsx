@@ -271,7 +271,7 @@ export default function MyForm() {
           </div>
           <div className="container-info">
             <div className="box-info-rna">
-              <h2>{pt_BR.textPredictionCRE}</h2><p>test</p>
+              <h2>{pt_BR.textPredictionCRE}</h2>
               <p>{(predictions.prediction_cre * 100).toFixed(2)}%</p>
             </div>
             <div className="box-info-rna">
