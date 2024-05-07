@@ -80,7 +80,7 @@ export default function MyForm() {
         Permanencia_UTI: questions.question4?.value,
         Uso_previo_antibiotico: previousMedicationUse,
         Qual_antibiotico: selectedMedication,
-        Procedimento_trato_genital: questions.question2?.value,
+        Procedimento_trato_genital: (questions.question5?.value !== undefined && questions.question5?.value !== null) ? questions.question5.value - 1 : undefined,
         Cateter_vesical: questions.question6?.value,
         Doenca_Renal_Vesical_estrutural: questions.question7?.value,
         Casa_repouso: questions.question8?.value,
@@ -97,11 +97,12 @@ export default function MyForm() {
       };
 
       for (const key in itemsToSend) {
-        if (itemsToSend[key] === 2) {
+        if (key !== "Procedimento_trato_genital" && itemsToSend[key] === 2) {
           itemsToSend[key] = 0;
         }
       }
 
+      console.log(itemsToSend);
       try {
         setIsLoading(true);
 
@@ -397,6 +398,22 @@ export default function MyForm() {
                           ? [
                               { value: 1, label: pt_BR.ITUComplicated },
                               { value: 2, label: pt_BR.ITUNoComplicated },
+                            ]
+                          : question.title === "Procedimento do trato genital:"
+                          ? [
+                              { value: 1, label: "Não" },
+                              { value: 2, label: "Litotripsia" },
+                              { value: 3, label: "RTU" },
+                              { value: 4, label: "Prostatectomia" },
+                              { value: 5, label: "Nefrectomia" },
+                              { value: 6, label: "Sling" },
+                              { value: 7, label: "Duplo J" },
+                              { value: 8, label: "AMIU" },
+                              { value: 9, label: "Cistolitomia" },
+                              { value: 10, label: "Cistolitomia + Bricker" },
+                              { value: 11, label: "Uretrotomia" },
+                              { value: 12, label: "Perineoplastia" },
+                              { value: 13, label: "Cistectomia" },
                             ]
                           : [
                               { value: 1, label: pt_BR.textYes },
